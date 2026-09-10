@@ -1,0 +1,17 @@
+# Python cache bestanden (vervangt en breidt je __pycache__ uit)
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtuele omgevingen
+venv/
+env/
+
+# Geheime configuraties (API keys)
+.env
+
+# VS Code instellingen (voorkomt dat jouw editor-instellingen die van je team overschrijven)
+.vscode/
+
+# Flask specifieke map (voor lokale database of tijdelijke data)
+instance/
