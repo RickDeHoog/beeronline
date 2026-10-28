@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeerOnline</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<main class="page">
+    <section class="weather-card" aria-labelledby="weather-headline">
+        <div class="weather-heading">
+            <div>
+                <h1 id="weather-headline">{{ weather.headline }}</h1>
+                <p class="advice">{{ weather.advice }}</p>
+            </div>
+            <div class="temperature" aria-label="Current temperature">
+                {{ weather.temp }}<span>°C</span>
+            </div>
+        </div>
+        <div class="weather-details">
+            <div><span>Conditions</span><strong>{{ weather.condition }}</strong></div>
+            <div><span>Feels like</span><strong>{{ weather.feels_like }}°C</strong></div>
+            <div><span>Visit low</span><strong>{{ weather.min_temp_visit }}°C</strong></div>
+            <div><span>Wind</span><strong>{{ weather.wind_kmh }} km/h</strong></div>
+            <div><span>Rain chance</span><strong>{{ weather.max_rain_prob_visit }}%</strong></div>
+        </div>
+        {% if weather.is_fallback %}
+        <p class="fallback-note">Live weather is unavailable; showing demo conditions.</p>
+        {% endif %}
+    </section>
+    <iframe
+        id="map"
+        title="Map of Leiden"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=4.47%2C52.14%2C4.52%2C52.18&amp;layer=mapnik&amp;marker=52.1601%2C4.497"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+</main>
+</body>
+</html>
