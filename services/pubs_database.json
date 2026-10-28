@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Belgisch Biercafé Olivier",
+    "lat": 52.1589,
+    "lon": 4.4906,
+    "address": "Hooigracht 23",
+    "has_terrace": true,
+    "has_heating": true,
+    "specialty": "Belgian Beer Café (30+ Taps)",
+    "beer_menu": ["Tripel Karmeliet", "Westmalle Dubbel", "La Chouffe", "Jupiler Draft"]
+  },
+  {
+    "name": "Café De Bruine Boon",
+    "lat": 52.1604,
+    "lon": 4.4891,
+    "address": "Leidseweg 2",
+    "has_terrace": true,
+    "has_heating": true,
+    "specialty": "Canal-side Terrace & Abbey Beers",
+    "beer_menu": ["La Trappe Blond", "Hertog Jan Grand Prestige", "Texels Skuumkoppe"]
+  },
+  {
+    "name": "Stadsbrouwerij Stael",
+    "lat": 52.1612,
+    "lon": 4.4925,
+    "address": "Nieuwe Rijn 20",
+    "has_terrace": true,
+    "has_heating": true,
+    "specialty": "Local Leiden Craft Brewery",
+    "beer_menu": ["Stael Amber Ale", "Leidse Lente IPA", "Local House Witbier"]
+  },
+  {
+    "name": "Grand Café Einstein",
+    "lat": 52.1597,
+    "lon": 4.4932,
+    "address": "Nieuwe Rijn 47",
+    "has_terrace": true,
+    "has_heating": true,
+    "specialty": "Heated Waterside Boat Terrace",
+    "beer_menu": ["Heineken Draft", "Affligem Blond", "Amstel Radler"]
+  },
+  {
+    "name": "Lemmy's Bier- & Whiskycafé",
+    "lat": 52.1618,
+    "lon": 4.4867,
+    "address": "Morsstraat 24",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Craft IPA, Imperial Stout & Whisky",
+    "beer_menu": ["BrewDog Punk IPA", "Guinness Draft", "Oatmeal Stout", "Lagunitas IPA"]
+  },
+  {
+    "name": "Café De Vergulde Kruik",
+    "lat": 52.1615,
+    "lon": 4.4882,
+    "address": "Haarlemmerstraat 22",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Cozy Indoor Brown Café & Speciaalbier",
+    "beer_menu": ["Grolsch Beugel", "Duvel", "Kriek Lambic"]
+  }
+]
