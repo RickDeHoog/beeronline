@@ -8,7 +8,7 @@ terrace recommendation (Great Terrace, Heated Terrace Only, or Stay Inside).
 """
 
 from datetime import datetime
-import requests
+import requests #Loads the tool that lets Python act like a web browser and fetch data from internet URLs.
 
 # Default coordinates for Leiden city center (used if user location is not provided)
 DEFAULT_LAT = 52.1601
@@ -17,8 +17,8 @@ DEFAULT_LON = 4.4970
 
 def decode_wmo_code(code: int) -> str:
     """
-    Translates standard WMO weather interpretation codes returned by Open-Meteo
-    into simple, human-readable descriptions suitable for a drunk-friendly UI.
+    Translates standard WMO  weather interpretation codes returned by Open-Meteo
+    into simple, readable descriptions suitable for a tipsy-friendly UI.
     """
     if code == 0:
         return "Clear sky"
@@ -44,7 +44,7 @@ def get_weather_analysis(lat: float = DEFAULT_LAT, lon: float = DEFAULT_LON, vis
     Parameters:
         lat (float): Latitude of the user/city.
         lon (float): Longitude of the user/city.
-        visit_hours (int): How many hours the user plans to stay at the pub.
+        visit_hours (int): How many hours the user plans to stay at the pub, STILL MIGHT NEED TO ROUND IT DOWN/HANDLE NON INTS.
         
     Returns:
         dict: Processed weather summary including current stats, 3-hour outlook,
@@ -72,14 +72,14 @@ def get_weather_analysis(lat: float = DEFAULT_LAT, lon: float = DEFAULT_LON, vis
             "weather_code",
         ],
         "timezone": "auto",
-        "forecast_days": 2,  # Fetch 2 days so midnight visits still have next-hour data
+        "forecast_days": 2,  # Fetch 2 days so visits during midnight are handled correct
     }
 
     try:
         # Make HTTP GET request with a 5-second timeout so the app never hangs
         response = requests.get(url, params=params, timeout=5)
         response.raise_for_status()
-        data = response.json()
+        data = response.json() #convert raw text response from internet to readable python dictionary
 
         # 1. Extract Current Weather Data
         current = data["current"]

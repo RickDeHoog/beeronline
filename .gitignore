@@ -1,17 +1,34 @@
-# Python cache bestanden 
+# ==========================================
+# BeerOnline - Git Ignore
+# ==========================================
+
+# Python cache files
 __pycache__/
 *.pyc
 *.pyo
+*.pyd
 
-# Virtuele omgevingen
+# Python virtual environments
+.venv/
 venv/
 env/
 
-# (API keys)
+# Environment variables and secrets
 .env
+.env.*
+!.env.example
 
-# VS Code instellingen)
+# VS Code local settings
 .vscode/
 
-# Flask specifieke map (voor lokale database of tijdelijke data)
+# Flask instance folder
 instance/
+
+# Python test and coverage files
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Operating system files
+.DS_Store
+Thumbs.db
