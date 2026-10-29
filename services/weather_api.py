@@ -7,6 +7,7 @@ Checks the weather during a pub visit and recommends terrace or indoor seating.
 """
 
 from datetime import datetime, timedelta
+import math
 import requests  # Lets Python request weather data from the internet.
 
 # Leiden city centre is used when the user does not provide a location.
@@ -33,6 +34,19 @@ def decode_wmo_code(code: int) -> str:
     return "Cloudy"
 
 
+def _valid_number(value, field_name: str) -> float:
+    """Reject missing, non-numeric or non-finite API measurements."""
+    if isinstance(value, bool):
+        raise ValueError(f"Invalid weather value for {field_name}")
+    try:
+        number = float(value)
+    except (TypeError, ValueError, OverflowError) as error:
+        raise ValueError(f"Invalid weather value for {field_name}") from error
+    if not math.isfinite(number):
+        raise ValueError(f"Invalid weather value for {field_name}")
+    return number
+
+
 def get_weather_analysis(
     lat: float = DEFAULT_LAT,
     lon: float = DEFAULT_LON,
@@ -41,7 +55,6 @@ def get_weather_analysis(
     """Get current weather and forecast for a visit lasting visit_hours hours."""
 
     # Keep visit length simple: whole hours only, between 1 and 24.
-    # Invalid input is a programming/user-input error, not a weather API failure.
     if isinstance(visit_hours, bool) or not isinstance(visit_hours, int) or not 1 <= visit_hours <= 24:
         raise ValueError("visit_hours must be a whole number between 1 and 24")
 
@@ -66,6 +79,7 @@ def get_weather_analysis(
             "weather_code",
         ],
         "timezone": "auto",  # Use local time for the requested coordinates.
+        "wind_speed_unit": "kmh",  # Keep the wind threshold in km/h.
         "forecast_days": 2,  # Include tomorrow for visits crossing midnight.
     }
 
@@ -75,24 +89,25 @@ def get_weather_analysis(
         response.raise_for_status()
         data = response.json()
 
-        # 1. Read current weather.
+        # 1. Read and validate current weather.
         current = data["current"]
-        current_temp = round(current["temperature_2m"], 1)
-        feels_like = round(current["apparent_temperature"], 1)
-        current_rain = current["precipitation"]
-        wind_speed = round(current["wind_speed_10m"], 1)
-        weather_code = current["weather_code"]
+        current_temp = round(_valid_number(current["temperature_2m"], "current temperature"), 1)
+        feels_like = round(_valid_number(current["apparent_temperature"], "current feels-like temperature"), 1)
+        current_rain = _valid_number(current["precipitation"], "current precipitation")
+        wind_speed = round(_valid_number(current["wind_speed_10m"], "current wind speed"), 1)
+        weather_code = int(_valid_number(current["weather_code"], "current weather code"))
         condition_text = decode_wmo_code(weather_code)
 
         # 2. Find the correct forecast hours for the whole visit.
         hourly = data["hourly"]
         hourly_times = hourly["time"]
+        if not isinstance(hourly_times, list):
+            raise ValueError("Hourly timestamps must be a list")
         current_time = datetime.fromisoformat(current["time"])
         start_hour = current_time.replace(minute=0, second=0, microsecond=0)
         visit_end = current_time + timedelta(hours=visit_hours)
 
-        # Find the hourly forecast entry for the current hour.
-        # If it is missing, do NOT silently use the first forecast entry.
+        # Never silently use forecast index zero when the current hour is absent.
         start_idx = next(
             (i for i, time_str in enumerate(hourly_times)
              if datetime.fromisoformat(time_str) == start_hour),
@@ -101,9 +116,8 @@ def get_weather_analysis(
         if start_idx is None:
             raise ValueError("Current hour is missing from the forecast")
 
-        # Include every hour touched by the visit. For example, 13:30 to
-        # 16:30 needs forecasts for 13:00, 14:00, 15:00 AND 16:00.
-        # Also check that none of those hours are missing or out of order.
+        # Include every hour touched by the visit, including the final partial hour.
+        # Check the hours are consecutive (no gaps or out-of-order entries).
         end_idx = start_idx
         expected_hour = start_hour
         while expected_hour < visit_end:
@@ -113,22 +127,62 @@ def get_weather_analysis(
             end_idx += 1
             expected_hour += timedelta(hours=1)
 
-        # Each weather array must contain values for all selected hours.
-        for key in ("precipitation_probability", "precipitation", "apparent_temperature"):
-            if len(hourly[key]) < end_idx:
+        # Check that every required array contains all forecast hours.
+        required_keys = (
+            "precipitation_probability", "precipitation", "apparent_temperature",
+            "wind_speed_10m", "weather_code",
+        )
+        for key in required_keys:
+            if not isinstance(hourly[key], list) or len(hourly[key]) < end_idx:
                 raise ValueError(f"Missing hourly values for {key}")
 
-        upcoming_rain_probs = hourly["precipitation_probability"][start_idx:end_idx]
-        upcoming_precip = hourly["precipitation"][start_idx:end_idx]
-        upcoming_feels_like = hourly["apparent_temperature"][start_idx:end_idx]
+        # Convert all selected measurements to numbers; reject null/NaN values.
+        upcoming_rain_probs = [
+            _valid_number(x, "precipitation_probability")
+            for x in hourly["precipitation_probability"][start_idx:end_idx]
+        ]
+        upcoming_precip = [
+            _valid_number(x, "precipitation")
+            for x in hourly["precipitation"][start_idx:end_idx]
+        ]
+        upcoming_feels_like = [
+            _valid_number(x, "apparent_temperature")
+            for x in hourly["apparent_temperature"][start_idx:end_idx]
+        ]
+        upcoming_winds = [
+            _valid_number(x, "wind_speed_10m")
+            for x in hourly["wind_speed_10m"][start_idx:end_idx]
+        ]
+        upcoming_codes = [
+            int(_valid_number(x, "weather_code"))
+            for x in hourly["weather_code"][start_idx:end_idx]
+        ]
 
-        # Use the wettest/coldest forecast hour to make a cautious recommendation.
+        # Reject measurements outside their meaningful ranges.
+        if (current_rain < 0 or wind_speed < 0
+                or any(not 0 <= p <= 100 for p in upcoming_rain_probs)
+                or any(p < 0 for p in upcoming_precip)
+                or any(w < 0 for w in upcoming_winds)):
+            raise ValueError("Weather measurements outside valid ranges")
+
+        # Use the wettest, coldest and windiest period of the visit.
         max_rain_prob_during_visit = max(upcoming_rain_probs)
         total_rain_during_visit = sum(upcoming_precip)
         min_temp_during_visit = round(min(upcoming_feels_like), 1)
+        max_wind_during_visit = round(max(wind_speed, *upcoming_winds), 1)
 
-        rain_now = current_rain > 0.1 or weather_code >= 51
-        rain_coming_later = max_rain_prob_during_visit >= 50 or total_rain_during_visit > 0.3
+        # The original 'rain_now' name is retained for compatibility.
+        # Treat snow and thunderstorms as bad outdoor weather too.
+        bad_weather_codes = {
+            51, 53, 55, 56, 57, 61, 63, 65, 66, 67,
+            71, 73, 75, 77, 80, 81, 82, 85, 86, 95, 96, 99,
+        }
+        rain_now = current_rain > 0.1 or weather_code in bad_weather_codes
+        rain_coming_later = (
+            max_rain_prob_during_visit >= 50
+            or total_rain_during_visit > 0.3
+            or any(code in bad_weather_codes for code in upcoming_codes)
+        )
 
         # 3. Turn the measurements into a simple terrace verdict.
         return _build_terrace_verdict(
@@ -142,13 +196,13 @@ def get_weather_analysis(
             max_rain_prob=max_rain_prob_during_visit,
             is_fallback=False,
             visit_hours=visit_hours,
+            max_wind_during_visit=max_wind_during_visit,
         )
 
-    except (requests.RequestException, KeyError, TypeError, ValueError, IndexError) as error:
-        # Demo values if the request fails OR the response contains bad data.
-        # The frontend should show is_fallback=True as 'demo/sample weather'.
+    except (requests.RequestException, KeyError, TypeError, ValueError, IndexError, OverflowError) as error:
+        # These are sample values, NOT real weather. Display the fallback flag in the UI.
         print(f"[WARNING] Weather data unavailable ({error}). Using sample weather.")
-        return _build_terrace_verdict(
+        fallback = _build_terrace_verdict(
             current_temp=14.0,
             feels_like=12.0,
             min_temp_during_visit=11.0,
@@ -159,7 +213,12 @@ def get_weather_analysis(
             max_rain_prob=10,
             is_fallback=True,
             visit_hours=visit_hours,
+            max_wind_during_visit=19.0,
         )
+        # Make it obvious this is example data, even before the UI is built.
+        fallback["headline"] = "SAMPLE WEATHER — NOT LIVE"
+        fallback["advice"] = "Live weather is unavailable. These are demo values, not a real forecast."
+        return fallback
 
 
 def _build_terrace_verdict(
@@ -173,35 +232,41 @@ def _build_terrace_verdict(
     max_rain_prob: int,
     is_fallback: bool,
     visit_hours: int = 3,
+    max_wind_during_visit: float | None = None,
 ) -> dict:
     """Convert weather measurements into a simple seating recommendation."""
     duration_text = f"{visit_hours} hour{'s' if visit_hours != 1 else ''}"
+    if max_wind_during_visit is None:
+        max_wind_during_visit = wind_speed
 
-    # Case 1: Already raining.
+    # Case 1: Bad weather happening now (rain, snow or thunderstorms).
     if rain_now:
         verdict = "STAY_INSIDE"
-        headline = "GO INSIDE! IT'S RAINING"
-        advice = "Skip the terrace. Find a cozy indoor pub table."
+        headline = "BAD WEATHER — GO INSIDE!"
+        advice = "Rain, snow or storms make outdoor seating unsuitable. Find an indoor pub table."
         needs_heating = False
 
-    # Case 2: Rain is expected during the visit.
+    # Case 2: Bad weather is forecast during the visit.
     elif rain_coming_later:
         verdict = "STAY_INSIDE"
-        headline = "TRAP ALERT: RAIN COMING SOON!"
+        headline = "BAD WEATHER POSSIBLE DURING YOUR VISIT!"
         advice = (
-            f"It looks dry now, but there is a {max_rain_prob}% chance of rain "
-            "during your visit. Pick a pub with indoor seating or a covered roof!"
+            f"Precipitation may occur during the next {duration_text} "
+            f"(highest hourly probability: {max_rain_prob}%). Choose indoor seating!"
         )
-        needs_heating = True
-
-    # Case 3: Too cold or windy for a terrace.
-    elif min_temp_during_visit < 7.0 or wind_speed > 35.0:
-        verdict = "STAY_INSIDE"
-        headline = "TOO COLD & WINDY FOR THE TERRACE"
-        advice = f"Feels like {feels_like}°C with {wind_speed} km/h wind. Drink inside!"
         needs_heating = False
 
-    # Case 4: Dry, but cold enough to need terrace heating.
+    # Case 3: Too cold or too windy, considering the whole visit.
+    elif min_temp_during_visit < 7.0 or max_wind_during_visit > 35.0:
+        verdict = "STAY_INSIDE"
+        headline = "TOO COLD OR WINDY FOR THE TERRACE"
+        advice = (
+            f"Feels like {feels_like}°C, dropping to {min_temp_during_visit}°C, "
+            f"with winds up to {max_wind_during_visit} km/h. Drink inside!"
+        )
+        needs_heating = False
+
+    # Case 4: Dry but chilly enough to need terrace heaters.
     elif min_temp_during_visit < 16.0:
         verdict = "HEATED_TERRACE_ONLY"
         headline = "TERRACE OKAY — ONLY WITH HEATERS!"
@@ -211,18 +276,22 @@ def _build_terrace_verdict(
         )
         needs_heating = True
 
-    # Case 5: Warm and dry enough for an ordinary terrace.
+    # Case 5: Warm, dry and not too windy for an ordinary terrace.
     else:
         verdict = "GREAT_TERRACE"
-        headline = "100% TERRACE WEATHER!"
-        advice = f"Dry for the next {duration_text} and feels like {feels_like}°C. Grab an outside table!"
+        headline = "GREAT TERRACE WEATHER!"
+        advice = (
+            f"Dry for the next {duration_text} and feels like {feels_like}°C. "
+            "Grab an outside table!"
+        )
         needs_heating = False
 
     return {
         "temp": current_temp,
         "feels_like": feels_like,
         "min_temp_visit": min_temp_during_visit,
-        "wind_kmh": wind_speed,
+        "wind_kmh": wind_speed,  # Current wind speed.
+        "max_wind_kmh_visit": max_wind_during_visit,  # New: maximum wind during visit.
         "condition": condition_text,
         "rain_now": rain_now,
         "rain_coming_later": rain_coming_later,
