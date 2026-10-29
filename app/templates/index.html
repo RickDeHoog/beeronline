@@ -16,7 +16,14 @@
     </header>
 
     <main>
-        <div class="left-panel"></div>
+        <div class="left-panel">
+            <div id="weather-card">
+                <h3 id="weather-headline"></h3>
+                <p id="weather-condition"></p>
+                <h2 id="weather-feels-like"></h2>
+                <p id="weather-advice"></p>
+            </div>
+        </div>
 
         <div class="right-panel">
             <div class="right-top">
@@ -43,5 +50,6 @@
     <script src="{{ url_for('static', filename='/js/age.js') }}"></script>
     <script src="{{ url_for('static', filename='/js/location.js') }}"></script>
     <script src="{{ url_for('static', filename='/js/map.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/weather.js') }}"></script>
 </body>
 </html>
