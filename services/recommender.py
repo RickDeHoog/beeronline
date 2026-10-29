@@ -71,95 +71,139 @@ def get_weather_beer_recommendation(weather_data: dict) -> dict:
         ),
     }
 
-
-def _pick_pub_specific_beer(pub: dict, verdict: str) -> str:
+def _pick_pub_specific_beer(pub: dict, verdict: str) -> str | None:
     """
-    Assigns a specific beer recommendation tailored to both the individual pub's
-    specialty and the current weather verdict (fulfilling the proposal requirement
-    to provide 'a beer recommendation for the respective pub').
+    Recommend a beer from this pub's recorded menu.
+    Return None if no usable menu is available.
     """
-    specialty = pub.get("specialty", "").lower()
 
-    if verdict == "STAY_INSIDE":
-        if "belgian" in specialty or "abbey" in specialty:
-            return "Rochefort 10 or St. Bernardus Abt 12"
-        if "ipa" in specialty or "whisky" in specialty:
-            return "Barrel-Aged Imperial Stout"
-        if "brewery" in specialty or "craft" in specialty:
-            return "House Smoked Porter / Winter Bock"
-        return "Hertog Jan Grand Prestige"
+    # Get the actual beer menu for this pub.
+    menu = pub.get("beer_menu", [])
 
-    if verdict == "HEATED_TERRACE_ONLY":
-        if "belgian" in specialty or "abbey" in specialty:
-            return "Tripel Karmeliet or Westmalle Dubbel"
-        if "ipa" in specialty or "whisky" in specialty:
-            return "Hazy New England IPA (NEIPA)"
-        if "brewery" in specialty or "craft" in specialty:
-            return "Stael Amber Ale / Herfstbok"
-        return "Texels Skuumkoppe on Draft"
+    # Reject missing or incorrectly formatted menus.
+    if not isinstance(menu, list):
+        return None
 
-    # GREAT_TERRACE weather
-    if "belgian" in specialty or "abbey" in specialty:
-        return "Chouffe Soleil or Vedett Extra White"
-    if "ipa" in specialty or "whisky" in specialty:
-        return "Tropical Session IPA"
-    if "brewery" in specialty or "craft" in specialty:
-        return "Fresh Unfiltered Leiden Weizen"
-    return "Ice-Cold Draft Pilsner or IJwit"
+    # Keep only non-empty beer names.
+    available_beers = [
+        beer for beer in menu
+        if isinstance(beer, str) and beer.strip()
+    ]
+
+    if not available_beers:
+        return None
+
+    # Preferred beer styles for each weather situation.
+    preferred_styles = {
+        "STAY_INSIDE": (
+            "stout", "porter", "quadrupel",
+            "dubbel", "bock", "bok", "tripel"
+        ),
+        "HEATED_TERRACE_ONLY": (
+            "tripel", "dubbel", "amber",
+            "bock", "bok", "blond"
+        ),
+        "GREAT_TERRACE": (
+            "witbier", "weizen", "radler",
+            "pils", "ipa", "blond", "draft"
+        ),
+    }
+
+    # Find the first beer matching a preferred style.
+    for style in preferred_styles.get(verdict, ()):
+        for beer in available_beers:
+            if style in beer.lower():
+                return beer
+
+    # If no style matches, use the first actual menu entry.
+    return available_beers[0]
+
 
 
 def recommend_pubs_for_weather(pubs: list[dict], weather_data: dict) -> list[dict]:
     """
-    Evaluates each pub against the current weather verdict, assigns a drunk-proof
-    suitability badge, pairs a pub-specific beer, and sorts the best matches to the top.
+    Rank pubs based on how suitable their seating is for the weather.
+
+    For each pub:
+    1. Calculate a suitability score.
+    2. Give it a readable badge.
+    3. Recommend a beer from its recorded menu.
+    4. Sort the results by suitability, then distance.
     """
+
+    # Get the weather verdict. Use heated terrace as the default.
     verdict = weather_data.get("verdict", "HEATED_TERRACE_ONLY")
+
     ranked_pubs = []
 
+    # Examine each pub individually.
     for pub in pubs:
+
+        # Copy the pub so we don't change the original database record.
         pub_copy = dict(pub)
+
         has_terrace = pub_copy.get("has_terrace", False)
         has_heating = pub_copy.get("has_heating", False)
 
-        # Score and badge each pub based on the current weather verdict
+        # CASE 1: Warm and dry weather.
+        # Pubs with terraces are preferred.
         if verdict == "GREAT_TERRACE":
+
             if has_terrace:
                 suitability_score = 3
                 match_badge = "TOP PICK: OPEN TERRACE"
-                match_color = "success"  # Green badge in UI
+                match_color = "success"
+
             else:
                 suitability_score = 1
                 match_badge = "INDOOR ONLY (NO TERRACE)"
                 match_color = "secondary"
 
+        # CASE 2: Chilly weather.
+        # Heated terraces are preferred, followed by indoor-only pubs.
         elif verdict == "HEATED_TERRACE_ONLY":
+
             if has_terrace and has_heating:
                 suitability_score = 3
                 match_badge = "PERFECT: HEATED TERRACE 🔥"
-                match_color = "warning"  # Amber/Orange badge in UI
-            elif has_terrace and not has_heating:
+                match_color = "warning"
+
+            elif not has_terrace:
                 suitability_score = 2
-                match_badge = "CHILLY: UNHEATED TERRACE ❄️"
-                match_color = "info"
-            else:
-                suitability_score = 1
-                match_badge = "INDOOR SEATING ONLY 🏠"
+                match_badge = "GOOD ALTERNATIVE: INDOOR SEATING 🏠"
                 match_color = "secondary"
 
+            else:
+                suitability_score = 1
+                match_badge = "NOT RECOMMENDED: UNHEATED TERRACE ❄️"
+                match_color = "secondary"
+
+        # CASE 3: Rain, strong wind or very cold conditions.
+        # Indoor seating is preferred.
         else:  # STAY_INSIDE
+
             suitability_score = 3
-            match_badge = "SAFE & COZY INDOORS 🍺"
+            match_badge = "STAY INSIDE: COZY PUB 🍺"
             match_color = "primary"
 
+        # Save the results in the copied pub dictionary.
         pub_copy["suitability_score"] = suitability_score
         pub_copy["match_badge"] = match_badge
         pub_copy["match_color"] = match_color
-        pub_copy["recommended_beer"] = _pick_pub_specific_beer(pub_copy, verdict)
+
+        # Choose a beer from this pub's actual JSON beer menu.
+        pub_copy["recommended_beer"] = _pick_pub_specific_beer(
+            pub_copy, verdict
+        )
 
         ranked_pubs.append(pub_copy)
 
-    # Sort primarily by highest suitability score, and secondarily by shortest walking distance
-    ranked_pubs.sort(key=lambda x: (-x["suitability_score"], x["distance_m"]))
+    # Sort highest suitability first, then shortest distance.
+    # The minus sign puts score 3 before score 2 and score 1.
+    ranked_pubs.sort(
+        key=lambda pub: (-pub["suitability_score"], pub["distance_m"])
+    )
+
     return ranked_pubs
 
 
