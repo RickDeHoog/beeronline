@@ -1,0 +1,981 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.4 2390de5a",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-29T13:43:11Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 145725718,
+      "lat": 52.1628567,
+      "lon": 4.4861901,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:country": "NL",
+        "addr:housenumber": "2",
+        "addr:postcode": "2312RA",
+        "addr:street": "Oude Singel",
+        "amenity": "pub",
+        "check_date": "2025-11-26",
+        "cuisine": "burger;sandwich",
+        "email": "pub@thedukeofoz.nl",
+        "indoor_seating": "yes",
+        "name": "The Duke of Oz",
+        "opening_hours": "Mo-Th 15:00-00:00; Fr 14:00-00:30; Sa 11:00-00:30; Su 11:00-00:00",
+        "outdoor_seating": "yes",
+        "phone": "+31 71 887 1287",
+        "source": "BAG;survey",
+        "source:date": "2014-06-12",
+        "website": "https://www.thedukeofoz.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 267007932,
+      "lat": 52.1619342,
+      "lon": 4.4825438,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "60",
+        "addr:postcode": "2312BN",
+        "addr:street": "Morsstraat",
+        "amenity": "pub",
+        "indoor_seating": "yes",
+        "name": "Pipa Streetfood Bar",
+        "opening_hours": "Tu-Su 11:00-24:00",
+        "outdoor_seating": "yes",
+        "phone": "+31 71 512 5671",
+        "source": "BAG",
+        "source:date": "2014-06-12",
+        "website": "https://pipastreetfood.nl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 274486863,
+      "lat": 52.163852,
+      "lon": 4.4847806,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "2",
+        "addr:postcode": "2312BW",
+        "addr:street": "Steenstraat",
+        "amenity": "pub",
+        "check_date": "2026-02-16",
+        "check_date:opening_hours": "2026-02-16",
+        "email": "info@stadscafevanderwerff.nl",
+        "fax": "+31 71 513 8229",
+        "image": "http://www.stadscafevanderwerff.nl/templates/vdw/img/header/logo_vdwerff.jpg",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "name": "Stadscafé Van der Werff",
+        "opening_hours": "Su-Tu 10:00-24:00, We,Th 09:00-24:00, Fr,Sa 09:00-01:00",
+        "opening_hours:kitchen": "Mo-Sa 09:00-22:00; Su 10:00-22:00",
+        "outdoor_seating": "yes",
+        "phone": "+31 71 513 0335",
+        "source": "BAG",
+        "source:date": "2014-06-12",
+        "website": "https://www.stadscafevanderwerff.nl",
+        "wheelchair": "limited"
+      }
+    },
+    {
+      "type": "node",
+      "id": 297043949,
+      "lat": 52.1609524,
+      "lon": 4.4897966,
+      "tags": {
+        "amenity": "pub",
+        "check_date": "2026-02-09",
+        "indoor_seating": "yes",
+        "live_music": "yes",
+        "name": "Praethuys",
+        "outdoor_seating": "yes",
+        "website": "https://www.praethuysleiden.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 304657373,
+      "lat": 52.1618514,
+      "lon": 4.4837077,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:country": "NL",
+        "addr:housenumber": "24",
+        "addr:postcode": "2312BM",
+        "addr:street": "Morsstraat",
+        "amenity": "pub",
+        "check_date": "2024-08-01",
+        "name": "Lemmy's Biercafé",
+        "opening_hours": "Mo-Fr 17:00+; Sa,Su 14:00+",
+        "phone": "+31 71 512 6402",
+        "source": "survey;BAG",
+        "source:date": "2014-06-12",
+        "website": "http://www.lemmysbiercafe.nl",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 304659400,
+      "lat": 52.1601549,
+      "lon": 4.484659,
+      "tags": {
+        "amenity": "pub",
+        "check_date": "2026-10-12",
+        "indoor_seating": "yes",
+        "name": "North End",
+        "outdoor_seating": "yes",
+        "website": "https://www.north-end.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 305058353,
+      "lat": 52.160167,
+      "lon": 4.48433,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "49",
+        "addr:postcode": "2311CB",
+        "addr:street": "Noordeinde",
+        "amenity": "bar",
+        "name": "Funky Monkey",
+        "source": "BAG",
+        "source:date": "2014-03-24",
+        "website": "https://www.funkymonkeyleiden.nl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 307608107,
+      "lat": 52.154988,
+      "lon": 4.4997852,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "152",
+        "addr:postcode": "2311JP",
+        "addr:street": "Levendaal",
+        "amenity": "pub",
+        "check_date": "2026-06-29",
+        "name": "Poolcafé Het Levendaal",
+        "website": "http://www.poolcafehetlevendaal.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 427598927,
+      "lat": 52.1557716,
+      "lon": 4.4863033,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "2",
+        "addr:postcode": "2311GR",
+        "addr:street": "Kaiserstraat",
+        "amenity": "pub",
+        "check_date": "2026-03-19",
+        "name": "De Keyzer",
+        "opening_hours": "Su-Th 15:30-01:00; Fr,Sa 15:30-02:00",
+        "phone": "+31 71 512 2936",
+        "website": "http://dekeyzer-leiden.nl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 427598930,
+      "lat": 52.1538775,
+      "lon": 4.4894047,
+      "tags": {
+        "amenity": "pub",
+        "check_date": "2026-10-25",
+        "indoor_seating": "yes",
+        "name": "Grandcafé De Vriend",
+        "outdoor_seating": "yes",
+        "phone": "+31 71 513 3672",
+        "website": "https://www.grandcafedevriend.nl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 449240557,
+      "lat": 52.161134,
+      "lon": 4.4899898,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "2",
+        "addr:postcode": "2312WP",
+        "addr:street": "Vrouwenkerkkoorstraat",
+        "amenity": "bar",
+        "check_date": "2026-08-29",
+        "name": "Lulu",
+        "source": "BAG",
+        "source:date": "2014-06-14"
+      }
+    },
+    {
+      "type": "node",
+      "id": 449264137,
+      "lat": 52.1554608,
+      "lon": 4.5019865,
+      "tags": {
+        "amenity": "pub",
+        "live_music": "yes",
+        "name": "Café Plantage",
+        "opening_hours": "Mo-Th 16:00-01:00, Fr,Sa 15:00-01:00, Su 12:00-24:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 450205730,
+      "lat": 52.1559604,
+      "lon": 4.4961054,
+      "tags": {
+        "amenity": "pub",
+        "check_date": "2026-06-29",
+        "name": "Snooker Centrum Hogewoerd",
+        "sport": "snooker",
+        "website": "http://www.snookercentrumhogewoerd.nl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 540491618,
+      "lat": 52.150387,
+      "lon": 4.4734079,
+      "tags": {
+        "amenity": "pub",
+        "name": "Café Santé",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "node",
+      "id": 560133696,
+      "lat": 52.1605364,
+      "lon": 4.4761086,
+      "tags": {
+        "amenity": "pub",
+        "check_date": "2024-04-03",
+        "name": "'t Brandewijntje",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "node",
+      "id": 560133718,
+      "lat": 52.1623184,
+      "lon": 4.4904275,
+      "tags": {
+        "amenity": "pub",
+        "check_date": "2025-07-14",
+        "check_date:opening_hours": "2025-07-14",
+        "indoor_seating": "yes",
+        "name": "In de Oude Marenpoort",
+        "opening_hours": "Mo-Su 16:00+",
+        "outdoor_seating": "yes",
+        "source": "survey",
+        "website": "https://marenpoort.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 560133742,
+      "lat": 52.1626404,
+      "lon": 4.5077132,
+      "tags": {
+        "amenity": "pub",
+        "check_date": "2024-01-17",
+        "name": "Café Decima",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "node",
+      "id": 601058257,
+      "lat": 52.1608187,
+      "lon": 4.4854128,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "4",
+        "addr:postcode": "2311GC",
+        "addr:street": "Kort Rapenburg",
+        "amenity": "pub",
+        "brewery": "Heineken;Guinness;Frontaal",
+        "indoor_seating": "yes",
+        "level": "0",
+        "name": "De Kroeg",
+        "opening_hours": "Mo-We 14:00-02:30; Th,Fr 14:00-06:00; Sa 14:00-01:30",
+        "outdoor_seating": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+31 71 513 0152",
+        "source": "survey",
+        "toilets": "yes",
+        "website": "https://www.dekroegleiden.nl/",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 601058264,
+      "lat": 52.1576747,
+      "lon": 4.4951534,
+      "tags": {
+        "amenity": "pub",
+        "check_date": "2026-01-26",
+        "name": "Café De Bonte Koe",
+        "opening_hours": "Mo-We 16:00-02:00, Th-Fr 16:00-03:00, Sa 14:00-03:00, Su 15:00-02:00",
+        "source": "survey",
+        "source:opening_hours": "website 2023-02-19",
+        "website": "http://www.cafedebontekoe.net/",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 604054413,
+      "lat": 52.1571274,
+      "lon": 4.4944301,
+      "tags": {
+        "addr:housenumber": "45",
+        "addr:street": "Nieuwstraat",
+        "amenity": "pub",
+        "check_date": "2026-03-18",
+        "level": "1",
+        "live_music": "yes",
+        "name": "Poolcafe The Church",
+        "opening_hours": "Mo-Th 18:00-01:00, Fr 18:00-02:00, Sa 15:00-02:00, Su 15:00-01:00",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "source": "survey",
+        "sport": "billiards",
+        "website": "https://www.poolcafethechurch.nl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 793798224,
+      "lat": 52.161489,
+      "lon": 4.509826,
+      "tags": {
+        "amenity": "pub",
+        "facebook": "https://facebook.com/pages/Caf%C3%A9-t-Lisser-Veerhuis/153462428078809",
+        "name": "Het Lisserveerhuis",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2054741250,
+      "lat": 52.1573926,
+      "lon": 4.4943823,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "28",
+        "addr:postcode": "2312KC",
+        "addr:street": "Nieuwstraat",
+        "amenity": "pub",
+        "check_date": "2026-01-26",
+        "indoor_seating": "yes",
+        "live_music": "yes",
+        "name": "De uyl van Hoogland",
+        "outdoor_seating": "yes",
+        "source": "BAG",
+        "source:date": "2014-06-14",
+        "website": "https://www.deuylvanhoogland.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2054741253,
+      "lat": 52.1572342,
+      "lon": 4.4940606,
+      "tags": {
+        "amenity": "pub",
+        "check_date": "2026-01-26",
+        "indoor_seating": "yes",
+        "name": "Jantje van Leiden",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2352652899,
+      "lat": 52.1576636,
+      "lon": 4.4914088,
+      "tags": {
+        "amenity": "pub",
+        "check_date": "2025-07-10",
+        "check_date:opening_hours": "2025-07-10",
+        "name": "Ons Hoekje",
+        "opening_hours:signed": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2462301900,
+      "lat": 52.1634746,
+      "lon": 4.4846788,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housename": "de Veste",
+        "addr:housenumber": "15",
+        "addr:postcode": "2312BZ",
+        "addr:street": "2e Binnenvestgracht",
+        "amenity": "bar",
+        "check_date": "2026-10-12",
+        "name": "Bierlokaal De Veste",
+        "old_name": "Studio De Veste",
+        "opening_hours": "Sa-Su 15:00-04:00; Mo-Fr 16:00-04:00",
+        "phone": "+31 6 13559990",
+        "website": "https://www.bierlokaaldeveste.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2774026430,
+      "lat": 52.1600744,
+      "lon": 4.488723,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "1-3F",
+        "addr:postcode": "2311EC",
+        "addr:street": "Aalmarkt",
+        "amenity": "pub",
+        "contact:website": "https://stadsbrouwhuis.nl/contact",
+        "dog": "yes",
+        "email": "info@stadsbrouwhuis.nl",
+        "indoor_seating": "yes",
+        "name": "Het Stadsbrouwhuis",
+        "opening_hours": "Mo-Th 15:00-00:00; Fr 15:00-01:00; Sa 12:00-01:00; Su 12:00-22:00",
+        "outdoor_seating": "yes",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:qr_code": "no",
+        "phone": "+31 71 532 7646",
+        "smoking": "outside",
+        "source": "BAG",
+        "source:date": "2014-03-24",
+        "website": "https://stadsbrouwhuis.nl",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2774027453,
+      "lat": 52.1580921,
+      "lon": 4.4890485,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "13",
+        "addr:postcode": "2311TR",
+        "addr:street": "Pieterskerk-Choorsteeg",
+        "amenity": "pub",
+        "check_date": "2026-02-04",
+        "name": "Dranklokaal 1650",
+        "source": "BAG",
+        "source:date": "2014-03-24",
+        "website": "https://www.dranklokaal1650.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2774028408,
+      "lat": 52.1599235,
+      "lon": 4.4884973,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "16",
+        "addr:postcode": "2311EB",
+        "addr:street": "Vrouwensteeg",
+        "amenity": "pub",
+        "name": "Gelagkamer De Wakende Haan",
+        "source": "BAG",
+        "source:date": "2014-03-24"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2774030200,
+      "lat": 52.1579826,
+      "lon": 4.4888979,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "24",
+        "addr:postcode": "2311TR",
+        "addr:street": "Pieterskerk-Choorsteeg",
+        "amenity": "pub",
+        "check_date": "2026-02-04",
+        "name": "Roebels",
+        "opening_hours": "Mo-Sa 20:00-01:00",
+        "phone": "+31 71 512 1981",
+        "source": "BAG",
+        "source:date": "2014-03-24",
+        "website": "http://www.roebelsleiden.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2774031331,
+      "lat": 52.160256,
+      "lon": 4.4834752,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "28",
+        "addr:postcode": "2311CE",
+        "addr:street": "Noordeinde",
+        "amenity": "bar",
+        "check_date": "2026-06-30",
+        "check_date:currency:XBT": "2026-06-30",
+        "contact:facebook": "VikingsLeiden",
+        "contact:instagram": "vikingsbarleiden",
+        "currency:XBT": "yes",
+        "email": "vikingsleiden@hotmail.com",
+        "name": "Vi-kings",
+        "opening_hours": "Mo-Th 17:00-00:00; Fr 16:00-02:00; Sa 14:00-02:00; Su 14:00-00:00",
+        "payment:lightning": "yes",
+        "payment:lightning_contactless": "no",
+        "payment:onchain": "no",
+        "phone": "+31 6 200 67242",
+        "source": "BAG",
+        "source:date": "2014-03-24"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2774034745,
+      "lat": 52.1595118,
+      "lon": 4.486656,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "4",
+        "addr:postcode": "2311TD",
+        "addr:street": "Schoolsteeg",
+        "amenity": "pub",
+        "email": "info@jeneverhuis.nl",
+        "live_music": "yes",
+        "name": "Van Goyen Jeneverhuis",
+        "opening_hours": "Mo-Th 17:00-01:00; Fr 17:00-02:00; Sa 15:00-02:00; Su 17:00-24:00",
+        "phone": "+31 71 512 35 14",
+        "smoking": "outside",
+        "source": "BAG",
+        "source:date": "2014-03-24",
+        "website": "https://jeneverhuis.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2774035404,
+      "lat": 52.1602768,
+      "lon": 4.4840781,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "44",
+        "addr:postcode": "2311CE",
+        "addr:street": "Noordeinde",
+        "amenity": "pub",
+        "description": "Jazz pub with live music",
+        "live_music": "yes",
+        "name": "Bourbon Street",
+        "phone": "+31 6 51307543",
+        "source": "BAG",
+        "source:date": "2014-03-24",
+        "website": "https://bbs-leiden.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2774037427,
+      "lat": 52.1538694,
+      "lon": 4.4936344,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "55",
+        "addr:postcode": "2311JT",
+        "addr:street": "Korevaarstraat",
+        "amenity": "bar",
+        "check_date": "2026-01-08",
+        "indoor_seating": "yes",
+        "name": "Café van Hout",
+        "outdoor_seating": "yes",
+        "source": "BAG",
+        "source:date": "2014-03-24",
+        "website": "https://cafevanhout.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2774038429,
+      "lat": 52.1570563,
+      "lon": 4.4865717,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "7",
+        "addr:postcode": "2311SK",
+        "addr:street": "Kloksteeg",
+        "amenity": "bar",
+        "check_date": "2026-05-18",
+        "name": "Café Frank",
+        "source": "BAG",
+        "source:date": "2014-03-24",
+        "website": "https://www.cafefrank.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2892744573,
+      "lat": 52.1526157,
+      "lon": 4.4723229,
+      "tags": {
+        "amenity": "pub",
+        "name": "Het plantsoen"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2898797564,
+      "lat": 52.1553558,
+      "lon": 4.5071943,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "34",
+        "addr:postcode": "2313KK",
+        "addr:street": "Hoge Rijndijk",
+        "amenity": "pub",
+        "name": "'t Dijkje",
+        "source": "BAG",
+        "source:date": "2014-06-04",
+        "sport": "billiards",
+        "website": "https://tdijkje.nl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2907560892,
+      "lat": 52.1583941,
+      "lon": 4.4961399,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "49",
+        "addr:postcode": "2312KP",
+        "addr:street": "Hooigracht",
+        "amenity": "pub",
+        "check_date": "2024-08-26",
+        "check_date:opening_hours": "2024-08-26",
+        "cocktails": "yes",
+        "indoor_seating": "yes",
+        "name": "Bar Olaf",
+        "opening_hours": "Tu-We 16:00-00:00; Th 16:00-01:00; Fr 16:00-02:00; Sa 15:00-02:00; Su 15:00-00:00",
+        "opening_hours:signed": "no",
+        "outdoor_seating": "sidewalk",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "source": "BAG",
+        "source:date": "2014-06-09",
+        "website": "https://www.barolaf.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2907988002,
+      "lat": 52.161015,
+      "lon": 4.4974269,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "64",
+        "addr:postcode": "2312DW",
+        "addr:street": "Pelikaanstraat",
+        "amenity": "pub",
+        "check_date": "2026-01-26",
+        "check_date:opening_hours": "2026-01-26",
+        "email": "info@thefatpelican.nl",
+        "food": "yes",
+        "name": "The Fat Pelican",
+        "opening_hours": "Mo-Fr 15:00+; Sa-Su 12:00+",
+        "operator": "Rebel Horeca Groep",
+        "phone": "+31 71 200 7081",
+        "source": "BAG",
+        "source:date": "2014-06-09",
+        "website": "https://thefatpelican.nl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2913148395,
+      "lat": 52.1631488,
+      "lon": 4.4844073,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "13",
+        "addr:postcode": "2312BS",
+        "addr:street": "Steenstraat",
+        "amenity": "pub",
+        "check_date": "2026-10-12",
+        "name": "Mr. Music",
+        "source": "BAG",
+        "source:date": "2014-06-12",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2913148866,
+      "lat": 52.1636564,
+      "lon": 4.4859448,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "32",
+        "addr:postcode": "2312CH",
+        "addr:street": "Nieuwe Beestenmarkt",
+        "amenity": "bar",
+        "check_date": "2026-08-29",
+        "indoor_seating": "yes",
+        "name": "Rock Cafe Lazaru's",
+        "outdoor_seating": "yes",
+        "source": "BAG",
+        "source:date": "2014-06-12"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2913149168,
+      "lat": 52.1620389,
+      "lon": 4.48282,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "49-51",
+        "addr:postcode": "2312BL",
+        "addr:street": "Morsstraat",
+        "amenity": "bar",
+        "check_date": "2024-08-01",
+        "name": "Café Rembrandt",
+        "phone": "+31 71 513 1400",
+        "source": "BAG",
+        "source:date": "2014-06-12"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2914714488,
+      "lat": 52.1630629,
+      "lon": 4.4948592,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "65",
+        "addr:postcode": "2312NW",
+        "addr:street": "Langegracht",
+        "amenity": "bar",
+        "check_date": "2026-08-29",
+        "contact:facebook": "cocleiden",
+        "contact:instagram": "coc_leiden",
+        "email": "info@cocleiden.nl",
+        "lgbtq": "primary",
+        "name": "COC Leiden",
+        "opening_hours": "Fr-Sa 00:00-24:00",
+        "phone": "+31 71 522 0640",
+        "source": "BAG",
+        "source:date": "2014-06-13",
+        "website": "https://www.cocleiden.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2916994296,
+      "lat": 52.1607289,
+      "lon": 4.4926011,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "20",
+        "addr:postcode": "2312VW",
+        "addr:street": "Van der Werfstraat",
+        "amenity": "pub",
+        "check_date": "2026-09-06",
+        "indoor_seating": "yes",
+        "name": "Café Papillon",
+        "outdoor_seating": "yes",
+        "source": "BAG",
+        "source:date": "2014-06-14"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2916995546,
+      "lat": 52.1612041,
+      "lon": 4.4902832,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "71",
+        "addr:postcode": "2312GR",
+        "addr:street": "Lange Mare",
+        "amenity": "bar",
+        "name": "Doerak",
+        "source": "BAG",
+        "source:date": "2014-06-14",
+        "website": "https://www.doerakwijnbar.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2916995667,
+      "lat": 52.1604904,
+      "lon": 4.4890324,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "8",
+        "addr:postcode": "2312DZ",
+        "addr:street": "Vrouwensteeg",
+        "amenity": "pub",
+        "check_date": "2026-06-30",
+        "name": "Café 't Kraantje",
+        "source": "BAG",
+        "source:date": "2014-06-14"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2917022397,
+      "lat": 52.1580381,
+      "lon": 4.4932561,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "11A",
+        "addr:postcode": "2312KA",
+        "addr:street": "Nieuwstraat",
+        "amenity": "pub",
+        "check_date": "2026-09-06",
+        "indoor_seating": "yes",
+        "name": "JazzCafé de Twee Spieghels",
+        "opening_hours": "12:00-02:00; Th,Fr 12:00-03:00",
+        "outdoor_seating": "yes",
+        "phone": "+31 71 887 3943",
+        "source": "BAG",
+        "source:date": "2014-06-14",
+        "website": "https://www.detweespieghels.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2917023547,
+      "lat": 52.158525,
+      "lon": 4.4927823,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "14",
+        "addr:postcode": "2312JS",
+        "addr:street": "Burgsteeg",
+        "amenity": "pub",
+        "check_date": "2026-01-28",
+        "indoor_seating": "yes",
+        "live_music": "yes",
+        "name": "Burcht",
+        "opening_hours": "Mo \"Op aanvraag\"; Tu 11:00-21:00, We,Th 11:00-24:00, Fr 11:00-25:00, Sa 10:00-01:00, Su 11:00-21:00",
+        "outdoor_seating": "yes",
+        "source": "BAG",
+        "source:date": "2014-06-14",
+        "website": "https://www.grandcafedeburcht.nl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2917023822,
+      "lat": 52.1583881,
+      "lon": 4.4919436,
+      "tags": {
+        "addr:city": "Leiden",
+        "addr:housenumber": "18",
+        "addr:postcode": "2312JC",
+        "addr:street": "Nieuwe Rijn",
+        "amenity": "pub",
+        "contact:facebook": "https://www.facebook.com/p/Lokaliteit-De-Apotheek-61561593448709/",
+        "live_music": "yes",
+        "name": "Lokaliteit De Apotheek",
+        "opening_hours": "Mo 15:00-22:00; Tu-Th 12:00-00:00; Fr-Sa 00:00-01:00, 12:00-00:00; Su 00:00-02:00, 12:00-22:00",
+        "source": "BAG",
+        "source:date": "2014-06-14"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3140581811,
+      "lat": 52.1615616,
+      "lon": 4.4863686,
+      "tags": {
+        "addr:housenumber": "22",
+        "addr:street": "Haarlemmerstraat",
+        "amenity": "pub",
+        "check_date": "2026-08-29",
+        "indoor_seating": "yes",
+        "name": "De Vergulde Kruik",
+        "opening_hours": "Mo-Th 15:00-00:00; Fr 15:00-01:00; Sa 12:00-01:00; Su 12:00-22:00",
+        "outdoor_seating": "no",
+        "phone": "+31 71 512 0509",
+        "website": "https://www.verguldekruik.nl/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5525205049,
+      "lat": 52.1492668,
+      "lon": 4.5244409,
+      "tags": {
+        "amenity": "pub",
+        "name": "De Koning"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7495438582,
+      "lat": 52.1528729,
+      "lon": 4.4899421,
+      "tags": {
+        "amenity": "pub",
+        "check_date": "2026-10-25",
+        "indoor_seating": "yes",
+        "name": "Café 't Kistje",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11197542037,
+      "lat": 52.1657607,
+      "lon": 4.4768375,
+      "tags": {
+        "amenity": "bar",
+        "email": "hepatho@mfls.nl",
+        "name": "Sociëteit HePatho",
+        "smoking": "no",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13055952709,
+      "lat": 52.159679,
+      "lon": 4.4893825,
+      "tags": {
+        "amenity": "pub",
+        "name": "Café Caat",
+        "website": "https://leidseschouwburg-stadsgehoorzaal.nl/cafe-caat"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13677406706,
+      "lat": 52.168138,
+      "lon": 4.4608872,
+      "tags": {
+        "access": "private",
+        "amenity": "bar",
+        "name": "De Fusie",
+        "opening_hours": "Th 17:00-23:00",
+        "private": "students;employees",
+        "website": "https://www.student.universiteitleiden.nl/faciliteiten/cafe/de-fusie"
+      }
+    }
+  ]
+}
