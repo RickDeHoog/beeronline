@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rhodium+Libre&display=swap');
+
+:root{
+    --color-primary: #174A35;
+    --color-background: #FAF6ED;
+    --color-accent: #E9AC35;
+    --color-surface: #FFFFFF;
+    --color-border: #DDD5C7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Rhodium Libre';
+    background-color: var(--color-background);
+}
+
+header {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: var(--color-primary);
+        color: var(--color-surface);
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+.left-panel {
+    width: 50%;
+}
+
+.right-panel {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-top,
+.right-bottom {
+    flex: 1;
+    min-height: 0;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    max-width: 90%;
+    padding: 20px;
+    background-color: var(--color-surface);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.popup button {
+    padding: 10px 16px;
+    margin: 5px;
+    font: inherit;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup button:first-of-type {
+    background: var(--color-primary);
+    color: white;
+}
+
+.popup button:last-of-type {
+    background: var(--color-background);
+    color: var(--color-primary);
+}
+

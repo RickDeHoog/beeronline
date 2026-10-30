@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeerOnline</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+
+    <header>
+        <h1>BeerOnline</h1>
+        <p>Leiden</p>
+    </header>
+
+    <main>
+        <div class="left-panel">
+            <div id="weather-card">
+                <h3 id="weather-headline"></h3>
+                <p id="weather-condition"></p>
+                <h2 id="weather-feels-like"></h2>
+                <p id="weather-advice"></p>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="right-top">
+                <div id="map" style="height: 50vh"></div>
+            </div>
+            <div class="right-bottom"></div>
+        </div>
+
+        <div class="popup" id="age-popup">
+            <h2>Are you 18 or older?</h2>
+            <p>
+                You must be at least 18 years old to use this app.
+                Please confirm your age to continue.
+            </p>
+            <button onclick="confirmAge()">Yes, I'm 18 or older</button>
+            <button onclick="denyAge()">No, I'm under 18</button>
+        </div>
+
+    </main>
+    <script>
+        window.DEFAULT_LOCATION = {{ default_location | tojson }};
+    </script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='/js/age.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/location.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/map.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/weather.js') }}"></script>
+</body>
+</html>
