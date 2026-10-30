@@ -40,15 +40,50 @@ main {
 
 .left-panel {
     width: 50%;
+    margin: 3%;
+}
+
+.left-top {
+    flex: 1;
+    min-height: 0;
+    background-color: var(--color-border);
+    padding: 2%;
+    border-radius: 5px;
+    height: 50%;
+    margin-bottom: 6%;
+}
+.left-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    border-radius: 5px;
+    height: auto;
+    margin-top: 6%;
+    margin-bottom: 60px;
 }
 
 .right-panel {
     width: 50%;
+    margin: 3%;
     display: flex;
     flex-direction: column;
 }
 
-.right-top,
+.weather-info{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+    padding: 1rem;
+    background-color: var(--color-border);
+    border-radius: 5px;
+}
+
+.right-top {
+    flex: 1;
+    min-height: 0;
+    height: 50%;
+}
 .right-bottom {
     flex: 1;
     min-height: 0;
@@ -85,4 +120,3 @@ main {
     background: var(--color-background);
     color: var(--color-primary);
 }
-
