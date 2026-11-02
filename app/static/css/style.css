@@ -6,6 +6,17 @@
     --color-accent: #E9AC35;
     --color-surface: #FFFFFF;
     --color-border: #DDD5C7;
+
+    --rain-now: #527FA3;
+    --rain-now-text: #FFFFFF;
+    --rain-later: #D58A45;
+    --rain-later-text: #172B23;
+    --extreme-weather: #81709E;
+    --extreme-weather-text: #FFFFFF;
+    --cold: #D9B957;
+    --cold-text: #172B23;
+    --sunny: #648C68;
+    --sunny-text: #FFFFFF;
 }
 
 * {
@@ -20,6 +31,7 @@ body {
 }
 
 header {
+    position: relative;
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -27,6 +39,12 @@ header {
     padding: 0 20px;
     background-color: var(--color-primary);
         color: var(--color-surface);
+}
+
+header p:first-of-type {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
 }
 
 header h1 {
@@ -52,6 +70,27 @@ main {
     height: 50%;
     margin-bottom: 6%;
 }
+
+.left-top.weather-rain-now {
+    background-color: var(--rain-now);
+}
+
+.left-top.weather-rain-later {
+    background-color: var(--rain-later);
+}
+
+.left-top.weather-extreme {
+    background-color: var(--extreme-weather);
+}
+
+.left-top.weather-cold {
+    background-color: var(--cold);
+}
+
+.left-top.weather-sunny {
+    background-color: var(--sunny);
+}
+
 .left-bottom {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

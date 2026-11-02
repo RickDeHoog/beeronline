@@ -28,6 +28,8 @@ document.addEventListener("locationReady", async function (event) {
         document.getElementById("weather-wind").textContent = `${data.wind_kmh} km/h`
         document.getElementById("weather-rain-chance").textContent = `${data.max_rain_prob_visit}%`
 
+        document.dispatchEvent(new CustomEvent("weatherDataLoaded", { detail: data }));
+
     } catch (error) {
         console.error("Failed to fetch weather:", error);
     }

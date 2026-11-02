@@ -69,7 +69,7 @@ function updateMap(location) {
         location.lon
     ];
 
-    map.setView(coords, 13);
+    map.setView(coords, 15);
 
     userMarker
         .setLatLng(coords)
