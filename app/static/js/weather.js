@@ -26,10 +26,7 @@ document.addEventListener("locationReady", async function (event) {
         document.getElementById("weather-advice").textContent = data.advice
         document.getElementById("weather-temp").textContent = `${data.temp}°C`
         document.getElementById("weather-wind").textContent = `${data.wind_kmh} km/h`
-        document.getElementById("weather-visit-low").textContent = `${data.min_temp_visit}°C`
         document.getElementById("weather-rain-chance").textContent = `${data.max_rain_prob_visit}%`
-        document.getElementById("weather-rain-later").textContent = data.rain_coming_later ? "Yes" : "No"
-        document.getElementById("weather-verdict").textContent = data.verdict.replaceAll("_", " ")
 
     } catch (error) {
         console.error("Failed to fetch weather:", error);

@@ -7,11 +7,18 @@
     <title>BeerOnline</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">    
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='beer.png', v=2) }}">
 </head>
 <body>
 
     <header>
         <h1>BeerOnline</h1>
+        <p>
+            <strong id="weather-temp"></strong>&emsp;&emsp;
+            <strong id="weather-wind"></strong>&emsp;&emsp;
+            <strong id="weather-rain-chance"></strong>
+        </p>
+
         <p>Leiden</p>
     </header>
 
@@ -23,32 +30,6 @@
                     <p id="weather-condition"></p>
                     <h2 id="weather-feels-like"></h2>
                     <p id="weather-advice"></p>
-                </div>
-            </div>
-            <div class="left-bottom">
-                <div class ="weather-info">
-                    <span>Temperature</span>
-                    <strong id="weather-temp"></strong>
-                </div>
-                <div class ="weather-info">
-                    <span>Wind</span>
-                    <strong id="weather-wind"></strong>
-                </div>
-                <div class ="weather-info">
-                    <span>Visit low</span>
-                    <strong id="weather-visit-low"></strong>
-                </div>
-                <div class ="weather-info">
-                    <span>Rain chance</span>
-                    <strong id="weather-rain-chance"></strong>
-                </div>
-                <div class="weather-info">
-                    <span>Rain expected during visit</span>
-                    <strong id="weather-rain-later"></strong>
-                </div>
-                <div class="weather-info">
-                    <span>Recommendation</span>
-                    <strong id="weather-verdict"></strong>
                 </div>
             </div>
         </div>
