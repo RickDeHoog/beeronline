@@ -13,13 +13,30 @@
 
     <header>
         <h1>BeerOnline</h1>
-        <p>
-            <strong id="weather-temp"></strong>&emsp;&emsp;
-            <strong id="weather-wind"></strong>&emsp;&emsp;
-            <strong id="weather-rain-chance"></strong>
-        </p>
 
-        <p>Leiden</p>
+        <div class="location-selector">
+            <button id="location-button" onclick="toggleLocationDropdown()">
+                <span id="location-name">Leiden</span>
+                <span class="dropdown-arrow">▼</span>
+            </button>
+
+            <div id="location-dropdown" class="location-dropdown hidden">
+                <h3>Change location</h3>
+
+                <input
+                    type="text"
+                    id="location-input"
+                    placeholder="Enter city or address..."
+                >
+                <button style="width:100%" class="button" onclick="searchLocation()">Search</button>
+
+                <button style="width:100%" class="button" onclick="useMyLocation()">
+                    Use my current location
+                </button>
+
+                <p id="location-error"></p>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -30,6 +47,10 @@
                     <p id="weather-condition"></p>
                     <h2 id="weather-feels-like"></h2>
                     <p id="weather-advice"></p>
+                </div>
+            </div>
+            <div class="left-bottom">
+                <div id="pub-list">
                 </div>
             </div>
         </div>
@@ -44,8 +65,10 @@
                 You must be at least 18 years old to use this app.
                 Please confirm your age to continue.
             </p>
-            <button onclick="confirmAge()">Yes, I'm 18 or older</button>
-            <button onclick="denyAge()">No, I'm under 18</button>
+            <div style="gap: 15px; display: flex">
+                <button class="button" onclick="confirmAge()">Yes, I'm 18 or older</button>
+                <button class="button" onclick="denyAge()">No, I'm under 18</button>
+            </div>
         </div>
 
     </main>
@@ -55,6 +78,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="{{ url_for('static', filename='/js/age.js') }}"></script>
     <script src="{{ url_for('static', filename='/js/location.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/pubrecommender.js') }}"></script>
     <script src="{{ url_for('static', filename='/js/map.js') }}"></script>
     <script src="{{ url_for('static', filename='/js/weather.js') }}"></script>
     <script src="{{ url_for('static', filename='js/weather-card.js') }}"></script>

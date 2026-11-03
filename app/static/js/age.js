@@ -1,4 +1,4 @@
-"use strict";
+
 
 function confirmAge() {
     document.getElementById("age-popup").remove();

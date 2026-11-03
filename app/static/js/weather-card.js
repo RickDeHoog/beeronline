@@ -1,6 +1,6 @@
 document.addEventListener("weatherDataLoaded", function (event) {
     const data = event.detail;
-    const weatherCard = document.querySelector(".left-top");
+    const weatherCard = document.getElementById("weather-card")
     const verdictColorClass = data.rain_now
         ? "weather-rain-now"
         : data.rain_coming_later

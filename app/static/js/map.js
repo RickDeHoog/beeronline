@@ -1,4 +1,3 @@
-"use strict";
 
 const initialLocation = window.DEFAULT_LOCATION;
 
@@ -47,17 +46,56 @@ async function loadNearbyPubs(location){
         }
 
         const data = await response.json();
-
+        displayPubs(data.pubs);
+        pubLayer.clearLayers();
         data.pubs.forEach((pub) => {
-            const pubMarker = L.marker([
-                pub.lat,
-                pub.lon
-            ], {
-                icon: pubIcon
-            });
 
-            pubMarker.addTo(pubLayer)
-        })
+            const pubMarker = L.marker(
+                [pub.lat, pub.lon],
+                {
+                    icon: pubIcon
+                }
+            );
+
+            const popupContent = `
+                <div class="pub-popup">
+                    <h3>${pub.name}</h3>
+
+                    <p>
+                        ${pub.address || "Address unknown"}
+                    </p>
+
+                    <p>
+                        ${pub.distance_m} meters away
+                    </p>
+
+
+                    <p>
+                        <strong>Specialty:</strong>
+                        ${pub.specialty || "Not specified"}
+                    </p>
+
+                    <p>
+                        <strong>Beer menu:</strong>
+                        ${(pub.beer_menu || []).join(", ") || "Unknown"}
+                    </p>
+
+                    <p>
+                        <strong>Terrace:</strong>
+                        ${pub.has_terrace ? "Yes" : "No"}
+                    </p>
+
+                    <p>
+                        <strong>Terrace heating:</strong>
+                        ${pub.has_heating ? "Yes" : "No"}
+                    </p>
+                </div>
+            `;
+
+            pubMarker.bindPopup(popupContent);
+
+            pubMarker.addTo(pubLayer);
+        });
     } catch (error){
         console.error("Could not load pubs:", error);
     }
@@ -73,7 +111,6 @@ function updateMap(location) {
 
     userMarker
         .setLatLng(coords)
-        .bindPopup(location.name);
 
     loadNearbyPubs(location);
 }
