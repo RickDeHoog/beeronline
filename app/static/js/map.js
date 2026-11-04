@@ -10,7 +10,9 @@ const map = L.map("map").setView(
 );
 
 L.tileLayer(
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }
 ).addTo(map);
 
 
@@ -34,8 +36,8 @@ async function loadNearbyPubs(location){
     const params = new URLSearchParams({
         lat: location.lat,
         lon: location.lon,
-        radius_m: 1500,
-        limit: 12
+        radius_m: 3000,
+        limit: 1000
     });
 
     try {

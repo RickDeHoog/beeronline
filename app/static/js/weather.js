@@ -17,10 +17,10 @@ document.addEventListener("locationReady", async function (event) {
             console.error("Weather API error:", data);
             return;
         }
-
+        console.log(data)
         document.getElementById("weather-headline").textContent = data.headline
         document.getElementById("weather-condition").textContent = data.condition
-        document.getElementById("weather-feels-like").textContent = `${data.feels_like}°C`
+        document.getElementById("weather-temp").textContent = `${data.temp}°C`
         document.getElementById("weather-advice").textContent = data.advice
         document.dispatchEvent(new CustomEvent("weatherDataLoaded", { detail: data }));
 

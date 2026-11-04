@@ -44,7 +44,7 @@ def api_nearby_pubs():
             lat=lat,
             lon=lon,
             radius_m=radius_m,
-            limit=limit,
+            limit=limit
         )
 
         return jsonify({
@@ -69,7 +69,7 @@ def api_weather():
         verdict = get_weather_analysis(
             lat=lat,
             lon=lon,
-            visit_hours=visit_hours  
+            visit_hours=visit_hours
         )
 
         return jsonify(verdict)

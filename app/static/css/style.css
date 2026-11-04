@@ -48,6 +48,7 @@ header h1 {
 main {
     display: flex;
     height: calc(100vh - 60px);
+    overflow: hidden;
 }
 
 .popup {
@@ -79,7 +80,6 @@ main {
 .left-top {
     flex: 1;
     min-height: 0;
-    height: 50%;
 }
 
 .left-bottom {
@@ -88,7 +88,28 @@ main {
     height: 50%;
 }
 
-.left-panel,
+.left-panel{
+    width: 44%;
+    margin: 3%;
+    min-width: 0;
+    
+    height: calc(100% - 6%);
+    overflow-y: auto;
+}
+
+.left-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.left-panel::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 10px;
+}
+
+.left-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
 .right-panel {
     width: 44%;
     margin: 3%;
@@ -100,9 +121,6 @@ main {
 }
 
 #weather-card{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
     min-width: 0;
     padding: 1rem;
     background-color: var(--color-primary);
@@ -215,5 +233,5 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding-top: 50px
+    padding-top: 10px
 }

@@ -1,62 +1,542 @@
 [
   {
-    "name": "Belgisch Biercafé Olivier",
-    "lat": 52.1589,
-    "lon": 4.4906,
-    "address": "Hooigracht 23",
-    "has_terrace": true,
-    "has_heating": true,
-    "specialty": "Belgian Beer Café (30+ Taps)",
-    "beer_menu": ["Tripel Karmeliet", "Westmalle Dubbel", "La Chouffe", "Jupiler Draft"]
-  },
-  {
-    "name": "Café De Bruine Boon",
-    "lat": 52.1604,
-    "lon": 4.4891,
-    "address": "Leidseweg 2",
-    "has_terrace": true,
-    "has_heating": true,
-    "specialty": "Canal-side Terrace & Abbey Beers",
-    "beer_menu": ["La Trappe Blond", "Hertog Jan Grand Prestige", "Texels Skuumkoppe"]
-  },
-  {
-    "name": "Stadsbrouwerij Stael",
-    "lat": 52.1612,
-    "lon": 4.4925,
-    "address": "Nieuwe Rijn 20",
-    "has_terrace": true,
-    "has_heating": true,
-    "specialty": "Local Leiden Craft Brewery",
-    "beer_menu": ["Stael Amber Ale", "Leidse Lente IPA", "Local House Witbier"]
-  },
-  {
-    "name": "Grand Café Einstein",
-    "lat": 52.1597,
-    "lon": 4.4932,
-    "address": "Nieuwe Rijn 47",
-    "has_terrace": true,
-    "has_heating": true,
-    "specialty": "Heated Waterside Boat Terrace",
-    "beer_menu": ["Heineken Draft", "Affligem Blond", "Amstel Radler"]
-  },
-  {
-    "name": "Lemmy's Bier- & Whiskycafé",
-    "lat": 52.1618,
-    "lon": 4.4867,
-    "address": "Morsstraat 24",
+    "name": "The Duke of Oz",
+    "lat": 52.1628567,
+    "lon": 4.4861901,
+    "address": "Oude Singel 2, 2312RA, Leiden",
     "has_terrace": true,
     "has_heating": false,
-    "specialty": "Craft IPA, Imperial Stout & Whisky",
-    "beer_menu": ["BrewDog Punk IPA", "Guinness Draft", "Oatmeal Stout", "Lagunitas IPA"]
+    "specialty": "burger;sandwich",
+    "beer_menu": []
   },
   {
-    "name": "Café De Vergulde Kruik",
-    "lat": 52.1615,
-    "lon": 4.4882,
+    "name": "Pipa Streetfood Bar",
+    "lat": 52.1619342,
+    "lon": 4.4825438,
+    "address": "Morsstraat 60, 2312BN, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Stadscafé Van der Werff",
+    "lat": 52.163852,
+    "lon": 4.4847806,
+    "address": "Steenstraat 2, 2312BW, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Praethuys",
+    "lat": 52.1609524,
+    "lon": 4.4897966,
+    "address": "Vrouwenkerkkoorstraat, 2312 WP, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Lemmy's Biercafé",
+    "lat": 52.1618514,
+    "lon": 4.4837077,
+    "address": "Morsstraat 24, 2312BM, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "North End",
+    "lat": 52.1601549,
+    "lon": 4.484659,
+    "address": "Noordeinde, 2311 CE, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Funky Monkey",
+    "lat": 52.160167,
+    "lon": 4.48433,
+    "address": "Noordeinde 49, 2311CB, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Bar",
+    "beer_menu": []
+  },
+  {
+    "name": "Poolcafé Het Levendaal",
+    "lat": 52.154988,
+    "lon": 4.4997852,
+    "address": "Levendaal 152, 2311JP, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "De Keyzer",
+    "lat": 52.1557716,
+    "lon": 4.4863033,
+    "address": "Kaiserstraat 2, 2311GR, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Grandcafé De Vriend",
+    "lat": 52.1538775,
+    "lon": 4.4894047,
+    "address": "Boisotkade, 2311 MZ, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Lulu",
+    "lat": 52.161134,
+    "lon": 4.4899898,
+    "address": "Vrouwenkerkkoorstraat 2, 2312WP, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Bar",
+    "beer_menu": []
+  },
+  {
+    "name": "Café Plantage",
+    "lat": 52.1554608,
+    "lon": 4.5019865,
+    "address": "Hogewoerd, 2311 KB, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Snooker Centrum Hogewoerd",
+    "lat": 52.1559604,
+    "lon": 4.4961054,
+    "address": "Hogewoerd, 2311 KB, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Café Santé",
+    "lat": 52.150387,
+    "lon": 4.4734079,
+    "address": "Aaltje Noordewierlaan, 2324 KP, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "'t Brandewijntje",
+    "lat": 52.1605364,
+    "lon": 4.4761086,
+    "address": "Morsweg, 2332 EL, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "In de Oude Marenpoort",
+    "lat": 52.1623184,
+    "lon": 4.4904275,
+    "address": "Oude Vest, 2312 XS, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Café Decima",
+    "lat": 52.1626404,
+    "lon": 4.5077132,
+    "address": "Decimastraat, 2315 HK, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "De Kroeg",
+    "lat": 52.1608187,
+    "lon": 4.4854128,
+    "address": "Kort Rapenburg 4, 2311GC, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Café De Bonte Koe",
+    "lat": 52.1576747,
+    "lon": 4.4951534,
+    "address": "Hooglandsekerk-Choorsteeg, 2312 KK, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Poolcafe The Church",
+    "lat": 52.1571274,
+    "lon": 4.4944301,
+    "address": "Nieuwstraat 45",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Het Lisserveerhuis",
+    "lat": 52.161489,
+    "lon": 4.509826,
+    "address": "Lage Rijndijk, 2315 JP, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "De uyl van Hoogland",
+    "lat": 52.1573926,
+    "lon": 4.4943823,
+    "address": "Nieuwstraat 28, 2312KC, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Jantje van Leiden",
+    "lat": 52.1572342,
+    "lon": 4.4940606,
+    "address": "Hartesteeg, 2312 JX, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Ons Hoekje",
+    "lat": 52.1576636,
+    "lon": 4.4914088,
+    "address": "Dwars Koornbrugsteeg, 2311 EL, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Bierlokaal De Veste",
+    "lat": 52.1634746,
+    "lon": 4.4846788,
+    "address": "2e Binnenvestgracht 15, 2312BZ, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Bar",
+    "beer_menu": []
+  },
+  {
+    "name": "Het Stadsbrouwhuis",
+    "lat": 52.1600744,
+    "lon": 4.488723,
+    "address": "Aalmarkt 1-3F, 2311EC, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Dranklokaal 1650",
+    "lat": 52.1580921,
+    "lon": 4.4890485,
+    "address": "Pieterskerk-Choorsteeg 13, 2311TR, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Gelagkamer De Wakende Haan",
+    "lat": 52.1599235,
+    "lon": 4.4884973,
+    "address": "Vrouwensteeg 16, 2311EB, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Roebels",
+    "lat": 52.1579826,
+    "lon": 4.4888979,
+    "address": "Pieterskerk-Choorsteeg 24, 2311TR, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Vi-kings",
+    "lat": 52.160256,
+    "lon": 4.4834752,
+    "address": "Noordeinde 28, 2311CE, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Bar",
+    "beer_menu": []
+  },
+  {
+    "name": "Van Goyen Jeneverhuis",
+    "lat": 52.1595118,
+    "lon": 4.486656,
+    "address": "Schoolsteeg 4, 2311TD, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Bourbon Street",
+    "lat": 52.1602768,
+    "lon": 4.4840781,
+    "address": "Noordeinde 44, 2311CE, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Café van Hout",
+    "lat": 52.1538694,
+    "lon": 4.4936344,
+    "address": "Korevaarstraat 55, 2311JT, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Bar",
+    "beer_menu": []
+  },
+  {
+    "name": "Café Frank",
+    "lat": 52.1570563,
+    "lon": 4.4865717,
+    "address": "Kloksteeg 7, 2311SK, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Bar",
+    "beer_menu": []
+  },
+  {
+    "name": "Het plantsoen",
+    "lat": 52.1526157,
+    "lon": 4.4723229,
+    "address": "Brandts Buyskade, 2324 LS, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "'t Dijkje",
+    "lat": 52.1553558,
+    "lon": 4.5071943,
+    "address": "Hoge Rijndijk 34, 2313KK, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Bar Olaf",
+    "lat": 52.1583941,
+    "lon": 4.4961399,
+    "address": "Hooigracht 49, 2312KP, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "The Fat Pelican",
+    "lat": 52.161015,
+    "lon": 4.4974269,
+    "address": "Pelikaanstraat 64, 2312DW, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Mr. Music",
+    "lat": 52.1631488,
+    "lon": 4.4844073,
+    "address": "Steenstraat 13, 2312BS, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Rock Cafe Lazaru's",
+    "lat": 52.1636564,
+    "lon": 4.4859448,
+    "address": "Nieuwe Beestenmarkt 32, 2312CH, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Bar",
+    "beer_menu": []
+  },
+  {
+    "name": "Café Rembrandt",
+    "lat": 52.1620389,
+    "lon": 4.48282,
+    "address": "Morsstraat 49-51, 2312BL, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Bar",
+    "beer_menu": []
+  },
+  {
+    "name": "COC Leiden",
+    "lat": 52.1630629,
+    "lon": 4.4948592,
+    "address": "Langegracht 65, 2312NW, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Bar",
+    "beer_menu": []
+  },
+  {
+    "name": "Café Papillon",
+    "lat": 52.1607289,
+    "lon": 4.4926011,
+    "address": "Van der Werfstraat 20, 2312VW, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Doerak",
+    "lat": 52.1612041,
+    "lon": 4.4902832,
+    "address": "Lange Mare 71, 2312GR, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Bar",
+    "beer_menu": []
+  },
+  {
+    "name": "Café 't Kraantje",
+    "lat": 52.1604904,
+    "lon": 4.4890324,
+    "address": "Vrouwensteeg 8, 2312DZ, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "JazzCafé de Twee Spieghels",
+    "lat": 52.1580381,
+    "lon": 4.4932561,
+    "address": "Nieuwstraat 11A, 2312KA, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Burcht",
+    "lat": 52.158525,
+    "lon": 4.4927823,
+    "address": "Burgsteeg 14, 2312JS, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Lokaliteit De Apotheek",
+    "lat": 52.1583881,
+    "lon": 4.4919436,
+    "address": "Nieuwe Rijn 18, 2312JC, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "De Vergulde Kruik",
+    "lat": 52.1615616,
+    "lon": 4.4863686,
     "address": "Haarlemmerstraat 22",
     "has_terrace": false,
     "has_heating": false,
-    "specialty": "Cozy Indoor Brown Café & Speciaalbier",
-    "beer_menu": ["Grolsch Beugel", "Duvel", "Kriek Lambic"]
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "De Koning",
+    "lat": 52.1492668,
+    "lon": 4.5244409,
+    "address": "Koningstraat, 2351 PH, Leiderdorp",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Café 't Kistje",
+    "lat": 52.1528729,
+    "lon": 4.4899421,
+    "address": "Herenstraat, 2313 AK, Leiden",
+    "has_terrace": true,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "Sociëteit HePatho",
+    "lat": 52.1657607,
+    "lon": 4.4768375,
+    "address": "Einthovenweg, 2333 ZC, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Bar",
+    "beer_menu": []
+  },
+  {
+    "name": "Café Caat",
+    "lat": 52.159679,
+    "lon": 4.4893825,
+    "address": "Catharinahof, 2311 EC, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Pub",
+    "beer_menu": []
+  },
+  {
+    "name": "De Fusie",
+    "lat": 52.168138,
+    "lon": 4.4608872,
+    "address": "Rosalind Franklinplein, 2333 CD, Leiden",
+    "has_terrace": false,
+    "has_heating": false,
+    "specialty": "Bar",
+    "beer_menu": []
   }
 ]

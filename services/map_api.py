@@ -190,7 +190,7 @@ def get_osm_pub_candidates(
 
         # Convert the JSON response into a Python dictionary.
         data = response.json()
-
+        
         # Check that the response contains the expected results list.
         if not isinstance(data, dict) or not isinstance(data.get("elements"), list):
             raise ValueError("Unexpected OpenStreetMap response format")
