@@ -61,7 +61,11 @@ async function loadNearbyPubs(location){
 
             const popupContent = `
                 <div class="pub-popup">
-                    <h3>${pub.name}</h3>
+                    <h3>
+                        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${pub.lat},${pub.lon}`)}"
+                           target="_blank"
+                           rel="noopener noreferrer">${pub.name}</a>
+                    </h3>
 
                     <p>
                         ${pub.address || "Address unknown"}
