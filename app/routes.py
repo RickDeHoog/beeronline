@@ -1,5 +1,9 @@
 from flask import Blueprint, render_template, request, jsonify
 from services.map_api import get_nearby_pubs
+from services.recommender import (
+    get_weather_beer_recommendation,
+    recommend_pubs_for_weather,
+)
 from services.weather_api import get_weather_analysis
 
 main_bp = Blueprint("main", __name__)
@@ -47,6 +51,10 @@ def api_nearby_pubs():
             limit=limit
         )
 
+        if pubs:
+            weather = get_weather_analysis(lat=lat, lon=lon, visit_hours=3)
+            pubs = recommend_pubs_for_weather(pubs, weather)
+
         return jsonify({
             "pubs": pubs,
             "count": len(pubs),
@@ -66,13 +74,14 @@ def api_weather():
         if not (-90 <= lat <= 90 and -180 <= lon <= 180):
             return jsonify({"error": "Invalid coordinates"}), 400
 
-        verdict = get_weather_analysis(
+        weather = get_weather_analysis(
             lat=lat,
             lon=lon,
             visit_hours=visit_hours
         )
 
-        return jsonify(verdict)
+        weather["beer_recommendation"] = get_weather_beer_recommendation(weather)
+        return jsonify(weather)
     
     except (TypeError, ValueError, OverflowError):
         return jsonify({"error": "Invalid query parameters"}), 400

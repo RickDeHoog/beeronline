@@ -78,17 +78,19 @@ main {
 
 
 .left-top {
-    flex: 1;
+    flex: 0 0 auto;
     min-height: 0;
 }
 
 .left-bottom {
     flex: 1;
-    min-height: 0;
-    height: 50%;
+    min-height: 200px;
 }
 
 .left-panel{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     width: 44%;
     margin: 3%;
     min-width: 0;
@@ -126,6 +128,62 @@ main {
     background-color: var(--color-primary);
     color: var(--color-surface);
     border-radius: 15px;
+}
+
+.beer-card {
+    margin-top: 12px;
+    padding: 1rem;
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(23, 74, 53, 0.08);
+}
+
+.beer-card[hidden] {
+    display: none;
+}
+
+.beer-eyebrow {
+    margin: 0 0 8px;
+    color: var(--color-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.beer-card h2 {
+    margin: 0;
+    font-size: 1.35rem;
+}
+
+.beer-style,
+.beer-tagline,
+.beer-reason,
+.beer-abv {
+    margin: 7px 0 0;
+}
+
+.beer-style {
+    color: #53665b;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+}
+
+.beer-tagline {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.beer-reason {
+    font-size: 0.9rem;
+}
+
+.beer-abv {
+    color: #53665b;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
 }
 
 #weather-card.weather-rain-now {
@@ -227,6 +285,32 @@ main {
 .pub-card p {
     margin: 5px 0;
     font-size: 0.9rem;
+}
+
+.pub-match {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background-color: var(--color-border);
+    color: var(--color-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem !important;
+    font-weight: 700;
+}
+
+.pub-match.success {
+    background-color: var(--sunny);
+    color: var(--sunny-text);
+}
+
+.pub-match.warning {
+    background-color: var(--cold);
+    color: var(--cold-text);
+}
+
+.pub-match.primary {
+    background-color: var(--rain-now);
+    color: var(--rain-now-text);
 }
 
 #pub-list {

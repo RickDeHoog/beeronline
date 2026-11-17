@@ -59,6 +59,12 @@ async function loadNearbyPubs(location){
                 }
             );
 
+            const terrace = pub.has_terrace == null
+                ? "Unknown"
+                : pub.has_terrace ? "Yes" : "No";
+            const heating = pub.has_heating == null
+                ? "Unknown"
+                : pub.has_heating ? "Yes" : "No";
             const popupContent = `
                 <div class="pub-popup">
                     <h3>
@@ -75,6 +81,7 @@ async function loadNearbyPubs(location){
                         ${pub.distance_m} meters away
                     </p>
 
+                    ${pub.match_badge ? `<p><strong>${pub.match_badge}</strong></p>` : ""}
 
                     <p>
                         <strong>Specialty:</strong>
@@ -86,14 +93,16 @@ async function loadNearbyPubs(location){
                         ${(pub.beer_menu || []).join(", ") || "Unknown"}
                     </p>
 
+                    ${pub.recommended_beer ? `<p><strong>Weather pick:</strong> ${pub.recommended_beer}</p>` : ""}
+
                     <p>
                         <strong>Terrace:</strong>
-                        ${pub.has_terrace ? "Yes" : "No"}
+                        ${terrace}
                     </p>
 
                     <p>
                         <strong>Terrace heating:</strong>
-                        ${pub.has_heating ? "Yes" : "No"}
+                        ${heating}
                     </p>
                 </div>
             `;
