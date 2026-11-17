@@ -19,4 +19,16 @@ document.addEventListener("weatherDataLoaded", function (event) {
         "weather-sunny"
     );
     weatherCard.classList.add(verdictColorClass);
+
+    const recommendation = data.beer_recommendation;
+    if (!recommendation) {
+        return;
+    }
+
+    document.getElementById("beer-name").textContent = recommendation.beer_name;
+    document.getElementById("beer-style").textContent = recommendation.style;
+    document.getElementById("beer-tagline").textContent = recommendation.tagline;
+    document.getElementById("beer-reason").textContent = recommendation.reason;
+    document.getElementById("beer-abv").textContent = `ABV ${recommendation.abv}`;
+    document.getElementById("beer-recommendation").hidden = false;
 });
